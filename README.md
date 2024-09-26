@@ -1,5 +1,5 @@
 # EX01 Developing a Simple Webserver
-## Date:
+## Date:26.09.2024.
 
 ## AIM:
 To develop a simple webserver to display the configuration details of my laptop.
@@ -22,34 +22,104 @@ Testing the webserver.
 
 ## PROGRAM:
 ```
-from http.server import HTTPServer,BaseHTTPRequestHandler
-
-content='''
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title> My Web Server</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Configuration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+
+        h2,h3 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 60%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #fcffff;
+            color: rgb(95, 21, 21);
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        td {
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome</h1>
+
+    <h2>Laptop Configuration</h2>
+    <h3>RUDESH KANNA R (24900303)</h3>
+
+
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Specification</th>
+        </tr>
+        <tr>
+            <td>Processor</td>
+            <td>12th Gen Intel Core i5-1235U processor</td>
+        </tr>
+        <tr>
+            <td>RAM</td>
+            <td>8 GB DDR4</td>
+        </tr>
+        <tr>
+            <td>Storage</td>
+            <td>512 GB SSD</td>
+        </tr>
+        <tr>
+            <td>Graphics</td>
+            <td>NVIDIA GeForce GTX 1650</td>
+        </tr>
+        <tr>
+            <td>Display</td>
+            <td>15.6" FHD (1920x1080) IPS</td>
+        </tr>
+        <tr>
+            <td>Battery</td>
+            <td> 65Wh</td>
+        </tr>
+        <tr>
+            <td>Operating System</td>
+            <td>Windows 11</td>
+        </tr>
+    </table>
+
 </body>
 </html>
-'''
 
-class MyServer(BaseHTTPRequestHandler):
-    def do_GET(self):
-        print("Get request received...")
-        self.send_response(200) 
-        self.send_header("content-type", "text/html")       
-        self.end_headers()
-        self.wfile.write(content.encode())
 
-print("This is my webserver") 
-server_address =('',8000)
-httpd = HTTPServer(server_address,MyServer)
-httpd.serve_forever()
 ```
 ## OUTPUT:
+![image](https://github.com/user-attachments/assets/d7bb8077-2892-4dfe-8f13-81d21173cc97)
 
 
 ## RESULT:
